@@ -2,6 +2,8 @@
 
 Updated daily graph for virus spread in USA
 
+Link: (https://hiteshlala.github.io/covid19/)[https://hiteshlala.github.io/covid19/]
+
 ## Setup
 
 * Clone:
