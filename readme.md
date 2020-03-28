@@ -30,6 +30,7 @@ Updated daily graph for virus spread in USA
 
 Uses [chartist.js](https://gionkunz.github.io/chartist-js/) to draw the graphs.
 
+Data from Johns Hopkins public repo [COVID-19](https://github.com/CSSEGISandData/COVID-19) that hosts the data used for their dashboard.
 
 
 ## License
