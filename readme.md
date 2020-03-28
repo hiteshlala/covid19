@@ -28,7 +28,7 @@ Updated daily graph for virus spread in USA
 
 ## Libraries
 
-Uses (chartist.js)[https://gionkunz.github.io/chartist-js/] to draw the graphs.
+Uses [chartist.js](https://gionkunz.github.io/chartist-js/) to draw the graphs.
 
 
 
