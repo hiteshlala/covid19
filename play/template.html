@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="./chartist.min.css" rel="stylesheet">
+  
+  <title> Covid-19 Virus </title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .spacer {
+      flex-grow: 1;
+    }
+    header {
+      display: flex;
+      flex-direction: row;
+      vertical-align: middle;
+      margin: 0 auto;
+      max-width: 400px;
+      overflow: hidden;
+    }
+    header p {
+      font-size: 20px;
+      line-height: 30px;
+      vertical-align: middle;
+      margin: 0;
+      margin-left: 30px;
+    }
+
+    footer {
+      vertical-align: middle;
+      margin: 15px auto;
+      width: fit-content;
+      max-width: 400px;
+      overflow: hidden;
+    }
+    hr {
+      max-width: 900px;
+      margin: 2px auto;
+    }
+
+   
+    .content,
+    #usa, 
+    #usaDailyInc,
+    #italy, 
+    #italyDailyInc,
+    #sa, 
+    #saDailyInc
+     {
+      max-width: 500px;
+      margin: 2px auto;
+    }
+
+    .ct-series-a .ct-line {
+      stroke: blue;
+    }
+
+    .ct-series-b .ct-line {
+      stroke: red;
+    }
+
+    .ct-series-c .ct-line {
+      stroke: green;
+    }
+
+    .ct-series-d .ct-line {
+      stroke: orange;
+    }
+
+    .orange {
+      color: orange;
+    }
+    .red {
+      color: red;
+    }
+    .blue {
+      color: blue;
+    }
+    .green {
+      color: green;
+    }
+    .summary {
+      display: flex;
+      flex-direction: row;
+      vertical-align: middle;
+      justify-content: space-between;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="./coronavirus-transparent.png" width="30px" height="30px">
+    <p> Covid-19 Virus </p>
+  </header>
+  <div><hr></div>
+
+  <div>
+    <div class="content"> 
+      <p> Just the numbers.</p>
+      <p> No opinions. </p>
+      <p> Updated: __LASTUPDATED__</p>
+    </div>
+
+    <h3 class="content"> USA  </h3>
+    <div class="content summary">
+      <div id="USA-deaths" class="red"> Deaths </div>
+      <div id="USA-confirmed" class="blue"> Confirmed </div>
+      <div id="USA-recovered" class="green"> Recovered </div>
+      <div id="USA-infected" class="orange"> Currently Infected </div>
+    </div>
+    <div class="ct-chart ct-golden-section" id="usa"></div>
+    <h3 class="content"> USA Daily Increase </h3>
+    <div class="ct-chart ct-golden-section" id="usaDailyInc"></div>
+
+    <h3 class="content"> Italy  </h3>
+    <div class="content summary">
+      <div id="Italy-deaths" class="red"> Deaths </div>
+      <div id="Italy-confirmed" class="blue"> Confirmed </div>
+      <div id="Italy-recovered" class="green"> Recovered </div>
+      <div id="Italy-infected" class="orange"> Currently Infected </div>
+    </div>
+    <div class="ct-chart ct-golden-section" id="italy"></div>
+    <h3 class="content"> Italy Daily Increase </h3>
+    <div class="ct-chart ct-golden-section" id="italyDailyInc"></div>
+
+    <h3 class="content"> SA  </h3>
+    <div class="content summary">
+      <div id="SA-deaths" class="red"> Deaths </div>
+      <div id="SA-confirmed" class="blue"> Confirmed </div>
+      <div id="SA-recovered" class="green"> Recovered </div>
+      <div id="SA-infected" class="orange"> Currently Infected </div>
+    </div>
+    <div class="ct-chart ct-golden-section" id="sa"></div>
+    <h3 class="content"> SA Daily Increase </h3>
+    <div class="ct-chart ct-golden-section" id="saDailyInc"></div>
+
+    <h3 class="content"> Other Resources  </h3>
+    <div class="content"> <a href="https://www.covidvisualizer.com/"> Global Visualizer</a></div>
+  </div>
+
+
+
+  <div class="spacer"> </div>
+  <div><hr></div>
+  <footer>
+    Hitesh Lala - &copy; <span id="year">2020</span> <a href="http://hiteshlala.info" >Hitesh Lala</a>
+  </footer>
+
+  <script src="./chartist.min.js"></script>
+  <script language="javascript">
+    const data = __DATA__;
+
+    window.onload = function() {
+      console.log( 'Hello' )
+
+      new Chartist.Line('#usa', {
+        labels: data.labels,
+        series: [
+          data.confUSA,
+          data.deathsUSA,
+          data.recoveredUSA,
+          data.currentUSA,
+        ]
+      }, {
+        axisX: {
+          labelInterpolationFnc: function skipLabels(value, index) {
+            return index % 7  === 0 ? value : null;
+          }
+        },
+        showPoint: false 
+      });
+    
+      new Chartist.Line('#usaDailyInc', {
+        labels: data.labels,
+        series: [
+          data.confDailyUSA,
+          data.deathsDailyUSA,
+        ]
+      }, {
+        axisX: {
+          labelInterpolationFnc: function skipLabels(value, index) {
+            return index % 7  === 0 ? value : null;
+          }
+        },
+        showPoint: false 
+      });
+
+      new Chartist.Line('#italy', {
+        labels: data.labels,
+        series: [
+          data.confItaly,
+          data.deathsItaly,
+          data.recoveredItaly,
+          data.currentItaly,
+        ]
+      }, {
+        axisX: {
+          labelInterpolationFnc: function skipLabels(value, index) {
+            return index % 7  === 0 ? value : null;
+          }
+        },
+        showPoint: false 
+      });
+    
+      new Chartist.Line('#italyDailyInc', {
+        labels: data.labels,
+        series: [
+          data.confDailyItaly,
+          data.deathsDailyItaly,
+        ]
+      }, {
+        axisX: {
+          labelInterpolationFnc: function skipLabels(value, index) {
+            return index % 7  === 0 ? value : null;
+          }
+        },
+        showPoint: false 
+      });
+
+      new Chartist.Line('#sa', {
+        labels: data.labels,
+        series: [
+          data.confSA,
+          data.deathsSA,
+          data.recoveredSA,
+          data.currentSA,
+        ]
+      }, {
+        axisX: {
+          labelInterpolationFnc: function skipLabels(value, index) {
+            return index % 7  === 0 ? value : null;
+          }
+        },
+        showPoint: false 
+      });
+    
+      new Chartist.Line('#saDailyInc', {
+        labels: data.labels,
+        series: [
+          data.confDailySA,
+          data.deathsDailySA,
+        ]
+      }, {
+        axisX: {
+          labelInterpolationFnc: function skipLabels(value, index) {
+            return index % 7  === 0 ? value : null;
+          }
+        },
+        showPoint: false 
+      });
+
+
+      [ 'USA', 'SA', 'Italy' ].forEach( s => {
+        const dead = data[ `deaths${s}` ][data[ `deaths${s}` ].length - 1 ];
+        document.getElementById( `${s}-deaths` ).innerText = `Deaths: ${ dead }`;
+
+        const confirmed = data[ `conf${s}` ][data[ `conf${s}` ].length - 1 ];
+        document.getElementById( `${s}-confirmed` ).innerText = `Confirmed: ${confirmed}`;
+
+        const recov = data[ `recovered${s}` ][data[ `recovered${s}` ].length - 1 ];
+        document.getElementById( `${s}-recovered` ).innerText = `Recovered: ${recov}`;
+
+        const curr = data[ `current${s}` ][data[ `current${s}` ].length - 1 ];
+        document.getElementById( `${s}-infected` ).innerText = `Current: ${curr}`;
+      });
+
+
+
+
+
+    }
+  </script>
+</body>
+</html>

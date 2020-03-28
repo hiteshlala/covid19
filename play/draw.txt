@@ -1,0 +1,53 @@
+
+set terminal png
+set output 'usConfirmed.png'
+plot "USconfirmed.dat" with lines
+
+set terminal png
+set output 'usConfirmedDaily.png'
+plot "USconfirmedDailyInc.dat" with lines
+
+set terminal png
+set output 'usDeaths.png'
+plot "USdeaths.dat" with lines
+
+set terminal png
+set output 'usDeathsInc.png'
+plot "USdeathsDailyInc.dat" with lines
+
+
+
+set terminal png
+set output 'italyConfirmed.png'
+plot "ItalyConfirmed.dat" with lines
+
+set terminal png
+set output 'italyConfirmedDailyInc.png'
+plot "ItalyConfirmedDailyInc.dat" with lines
+
+set terminal png
+set output 'italyDeaths.png'
+plot "ItalyDeaths.dat" with lines
+
+set terminal png
+set output 'italyDeathsDaily.png'
+plot "ItalyDeathsDailyInc.dat" with lines
+
+
+
+
+set terminal png
+set output 'SAConfirmed.png'
+plot "SAConfirmed.dat" with lines
+
+set terminal png
+set output 'SAConfirmedDailyInc.png'
+plot "SAConfirmedDailyInc.dat" with lines
+
+set terminal png
+set output 'SADeaths.png'
+plot "SADeaths.dat" with lines
+
+set terminal png
+set output 'SADeathsDaily.png'
+plot "SADeathsDailyInc.dat" with lines
