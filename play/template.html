@@ -162,6 +162,10 @@
   <script language="javascript">
     const data = __DATA__;
 
+    function skipLabels(value, index) {
+      return index % 30  === 0 ? value : null;
+    }
+
     window.onload = function() {
       console.log( 'Hello' )
 
@@ -175,9 +179,7 @@
         ]
       }, {
         axisX: {
-          labelInterpolationFnc: function skipLabels(value, index) {
-            return index % 21  === 0 ? value : null;
-          }
+          labelInterpolationFnc: skipLabels
         },
         showPoint: false 
       });
@@ -190,9 +192,7 @@
         ]
       }, {
         axisX: {
-          labelInterpolationFnc: function skipLabels(value, index) {
-            return index % 21  === 0 ? value : null;
-          }
+          labelInterpolationFnc: skipLabels
         },
         showPoint: false 
       });
@@ -207,9 +207,7 @@
         ]
       }, {
         axisX: {
-          labelInterpolationFnc: function skipLabels(value, index) {
-            return index % 21  === 0 ? value : null;
-          }
+          labelInterpolationFnc: skipLabels
         },
         showPoint: false 
       });
@@ -222,9 +220,7 @@
         ]
       }, {
         axisX: {
-          labelInterpolationFnc: function skipLabels(value, index) {
-            return index % 21  === 0 ? value : null;
-          }
+          labelInterpolationFnc: skipLabels
         },
         showPoint: false 
       });
@@ -239,9 +235,7 @@
         ]
       }, {
         axisX: {
-          labelInterpolationFnc: function skipLabels(value, index) {
-            return index % 21  === 0 ? value : null;
-          }
+          labelInterpolationFnc: skipLabels
         },
         showPoint: false 
       });
@@ -254,9 +248,7 @@
         ]
       }, {
         axisX: {
-          labelInterpolationFnc: function skipLabels(value, index) {
-            return index % 21  === 0 ? value : null;
-          }
+          labelInterpolationFnc: skipLabels
         },
         showPoint: false 
       });
